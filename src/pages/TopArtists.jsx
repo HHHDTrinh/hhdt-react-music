@@ -14,7 +14,7 @@ const TopArtists = () => {
                 Top Artists:
             </h2>
 
-            <div className="flex flex-wrap sm:justify-start justify-center gap-7">
+            <div className="flex flex-wrap sm:justify-start md:justify-center justify-center gap-7">
                 {data?.map((track, i) => (
                     <ArtistCard i={i} key={track.key} track={track} />
                 ))}

@@ -4,13 +4,13 @@ const ArtistCard = ({ track }) => {
     const navigate = useNavigate();
     return (
         <div
-            className="flex flex-col p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animte-slideup rounded-lg cursor-pointer"
+            className="flex flex-col w-[350px] md:w-[220px] lg:w-[200px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animte-slideup rounded-lg cursor-pointer"
             onClick={() => navigate(`/artists/${track?.artists[0].adamid}`)}
         >
             <img
                 alt="artist"
                 src={track?.images?.coverart}
-                className="w-full h-56 rounded-lg"
+                className="w-full h-50 rounded-lg"
             />
             <p className="mt-4 font-semibold text-lg text-white truncate">
                 {track?.subtitle}

@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+/* eslint-disable import/no-unresolved */
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
 
@@ -29,7 +30,7 @@ const TopChartCard = ({
         <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
         <div className="flex-1 flex flex-row justify-between items-center">
             <img
-                className="w-10 h-10 rounded-lg"
+                className="w-20 h-20 rounded-lg"
                 src={song?.images?.coverart}
                 alt={song?.title}
             />
@@ -57,12 +58,12 @@ const TopChartCard = ({
 );
 
 const TopPlay = () => {
-    const dispatch = useDispatch();
-    const { activeSong, isPlaying } = useSelector((state) => state.player);
     const [windowSize, setWindowSize] = useState({
         width: undefined,
         height: undefined,
     });
+    const dispatch = useDispatch();
+    const { activeSong, isPlaying } = useSelector((state) => state.player);
     const { data } = useGetTopChartsQuery();
     const divRef = useRef(null);
 
@@ -149,7 +150,7 @@ const TopPlay = () => {
                     {topPlays?.slice(0, 5).map((artist) => (
                         <SwiperSlide
                             key={artist?.key}
-                            style={{ width: '20%', height: 'auto' }}
+                            style={{ width: '25%', height: 'auto' }}
                             className="shadow-lg rounded-full animate-slideright"
                         >
                             <Link to={`/artists/${artist?.artists[0].adamid}`}>
