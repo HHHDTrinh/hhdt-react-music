@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -80,7 +80,11 @@ const TopPlay = () => {
     }, []);
 
     useEffect(() => {
-        divRef.current.scrollIntoView({ behavior: 'smooth' });
+        divRef.current.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest',
+        });
     }, [windowSize]);
 
     const topPlays = data?.slice(0, 5);
@@ -100,7 +104,7 @@ const TopPlay = () => {
             className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col"
         >
             <div className="w-full flex flex-col">
-                <div className="flex flex-row justify-between items-center">
+                <div className="flex flex-row justify-between items-center px-[1rem]">
                     <h2 className="text-white font-bold text-2xl">
                         Top Charts
                     </h2>
